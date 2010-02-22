@@ -1,6 +1,48 @@
 libHaru news
 -------------------------------------------------------------------------------
 
+Version 2.2.0 (2009.??.??)
+
+ - Greatly improved U3D support (Nikhil Soman)
+    - Markup Annotations
+    - Free Text Annotations
+    - Line Annotations
+    - Circle and Squre Annotations
+    - Text Markup Annotations
+    - Rubber Stamp Annotations
+    - Popup Annotations	
+
+ - Added VB.Net bindings. (Matt Underwood) 
+ - Added CMake build system (experimental). (Werner Smekal) 
+ - Added preliminary ICC support. (vbrasseur at gmail dot com)
+
+ - Added HPDF_Image_AddSMask(). (patch by Adam Blokus)
+ - Added HPDF_LoadPngImageFromMem() and HPDF_LoadJpegImageFromMem(). 
+   (patch by Adam Blokus)
+ - Added HPDF_GetContents().
+ - Added HPDF_Page_SetZoom().
+ - Added support for CMYK in HPDF_Image_LoadRawImageFromMem().
+
+ - Applied a bunch of fixes and improvements from bug report #13.
+ - HPDF_Page_TextRect() corrections and improvements. (Ralf Junker)
+ - Fixed build failure when zlib was not found. (Werner Smekal)
+ - Fixed build with newer libtool versions.
+ - Fixed external build. (thanks to Jeremiah Willcock)
+ - Fixed memleak in HPDF_EmbeddedFile_New(). (Ralf Junker) 
+ - Fixed uninitialized fields in HPDF_Type1FontDef_New(). (Ralf Junker)
+ - Fixed issue with grayscale PNG images. (Ralf Junker)
+ - Fixed missing parentheses from empty string object. (Ralf Junker)
+
+ - Fixed bug #21 (Build fails on Win CE because of errno and errno.h usage).
+ - Fixed bug #18 (Missing compiler flag -fexceptions)
+ - Fixed bug #11 (sqrtf() is missing on Winblows).
+ - Fixed bug #10 (missing HPDF_LoadPngImageFromMem from win32/msvc/libhpdf.def).
+ - Fixed bug #7 (HPDF_String_SetValue() is declared twice).
+ - Fixed bug #6 (possible NULL dereference in HPDF_LoadPngImageFromFile2()).
+ - Fixed bug #5 (possible NULL derefernce in HPDF_LoadRawImageFromFile()).
+ - Fixed bug #4 (possible NULL dereference in HPDF_AToI()).
+ - Fixed bug #2 (Ruby binding: hpdf_insert_page has stray printf).
+
 Version 2.1.0 (2008.05.27)
  - Added initial support for Alpha channel in RGB and palette-based PNG images.
  - Added HPDF_GetTTFontDefFromFile() function. This closes [FR #1604475] (HPDF_FONT_EXISTS not error) 
