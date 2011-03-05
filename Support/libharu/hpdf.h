@@ -66,6 +66,12 @@ typedef HPDF_HANDLE   HPDF_Annotation;
 typedef HPDF_HANDLE   HPDF_ExtGState;
 typedef HPDF_HANDLE   HPDF_FontDef;
 typedef HPDF_HANDLE   HPDF_U3D;
+typedef HPDF_HANDLE   HPDF_Error;
+typedef HPDF_HANDLE   HPDF_MMgr;
+typedef HPDF_HANDLE   HPDF_Dict;
+typedef HPDF_HANDLE   HPDF_EmbeddedFile;
+typedef HPDF_HANDLE   HPDF_OutputIntent;
+typedef HPDF_HANDLE   HPDF_Xref;
 
 #else
 
@@ -76,6 +82,7 @@ typedef HPDF_HANDLE   HPDF_U3D;
 #include "hpdf_consts.h"
 #include "hpdf_doc.h"
 #include "hpdf_error.h"
+#include "hpdf_pdfa.h"
 
 #endif /* HPDF_SHARED */
 
@@ -1446,7 +1453,7 @@ HPDF_EXPORT(HPDF_OutputIntent)
 HPDF_LoadIccProfileFromFile  (HPDF_Doc  pdf,
                             const char* icc_file_name,
                                    int  numcomponent);
-
+                                   
 #ifdef __cplusplus
 }
 #endif /* __cplusplus */
