@@ -14,13 +14,9 @@
  * It is provided "as is" without express or implied warranty.
  *
  */
-#define _CRT_SECURE_NO_WARNINGS
 
 #ifndef UNDER_CE
 #include <errno.h>
-#endif
-#ifndef HPDF_UNUSED
-#define HPDF_UNUSED(a) ((void)(a))
 #endif
 
 #include "hpdf_conf.h"
@@ -154,10 +150,7 @@ HPDF_Stream_ReadLn  (HPDF_Stream  stream,
 
     HPDF_PTRACE((" HPDF_Stream_ReadLn\n"));
 
-    if (!stream)
-        return HPDF_INVALID_PARAMETER;
-
-    if (!s || *size == 0)
+    if (!stream || !s || *size == 0)
         return HPDF_SetError (stream->error, HPDF_INVALID_PARAMETER, 0);
 
     if (!(stream->seek_fn) || !(stream->read_fn))
@@ -441,18 +434,18 @@ HPDF_Stream_WriteEscapeText2  (HPDF_Stream    stream,
 
     buf[idx++] = '(';
 
-    for (i = 0; i < (HPDF_INT)len; i++) {
+    for (i = 0; i < len; i++) {
         HPDF_BYTE c = (HPDF_BYTE)*p++;
         if (HPDF_NEEDS_ESCAPE(c)) {
             buf[idx++] = '\\';
 
-            buf[idx] = (char)(c >> 6);
+            buf[idx] = c >> 6;
             buf[idx] += 0x30;
             idx++;
-            buf[idx] = (char)((c & 0x38) >> 3);
+            buf[idx] = (c & 0x38) >> 3;
             buf[idx] += 0x30;
             idx++;
-            buf[idx] = (char)(c & 0x07);
+            buf[idx] = (c & 0x07);
             buf[idx] += 0x30;
             idx++;
         }
@@ -518,7 +511,7 @@ HPDF_Stream_WriteBinary  (HPDF_Stream      stream,
     }
 
     for (i = 0; i < len; i++, p++) {
-        char c = (char)(*p >> 4);
+        char c = *p >> 4;
 
         if (c <= 9)
             c += 0x30;
@@ -526,7 +519,7 @@ HPDF_Stream_WriteBinary  (HPDF_Stream      stream,
             c += 0x41 - 10;
         buf[idx++] = c;
 
-        c = (char)(*p & 0x0f);
+        c = *p & 0x0f;
         if (c <= 9)
             c += 0x30;
         else
@@ -675,9 +668,6 @@ HPDF_Stream_WriteToStreamWithDeflate  (HPDF_Stream  src,
     deflateEnd(&strm);
     return HPDF_OK;
 #else /* LIBHPDF_HAVE_NOZLIB */
-    HPDF_UNUSED (e);
-    HPDF_UNUSED (dst);
-    HPDF_UNUSED (src);
     return HPDF_UNSUPPORTED_FUNC;
 #endif /* LIBHPDF_HAVE_NOZLIB */
 }
@@ -694,7 +684,6 @@ HPDF_Stream_WriteToStream  (HPDF_Stream  src,
     HPDF_BOOL flg;
 
     HPDF_PTRACE((" HPDF_Stream_WriteToStream\n"));
-    HPDF_UNUSED (filter);
 
     if (!dst || !(dst->write_fn)) {
         HPDF_SetError (src->error, HPDF_INVALID_OBJECT, 0);
@@ -1099,7 +1088,7 @@ HPDF_MemStream_SeekFunc  (HPDF_Stream      stream,
     } else if (mode == HPDF_SEEK_END)
         pos = stream->size - pos;
 
-    if (pos > (HPDF_INT)stream->size) {
+    if (pos > stream->size) {
         return HPDF_SetError (stream->error, HPDF_STREAM_EOF, 0);
     }
 
