@@ -19,10 +19,17 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {    
-    self.viewController = [[[PDFViewController alloc] initWithNibName:@"PDFView"
-                                                               bundle:nil] autorelease];
-//    self.viewController = [[[TEST alloc] initWithNibName:@"TEST"
-//                                                  bundle:nil] autorelease];
+    
+	if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad)   
+	{
+		self.viewController = [[[PDFViewController alloc] initWithNibName:@"PDFView_iPad"
+																   bundle:nil] autorelease];
+	}
+	else
+	{
+		self.viewController = [[[PDFViewController alloc] initWithNibName:@"PDFView"
+																   bundle:nil] autorelease];
+	}    
     [window addSubview:self.viewController.view];
     [window makeKeyAndVisible];
 }

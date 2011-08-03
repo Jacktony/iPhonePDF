@@ -220,6 +220,7 @@
 		B4AD222713E93EC9001386E3 /* hpdf_binary.c in Sources */ = {isa = PBXBuildFile; fileRef = B4AD219D13E93EC9001386E3 /* hpdf_binary.c */; };
 		B4AD222813E93EC9001386E3 /* hpdf_array.c in Sources */ = {isa = PBXBuildFile; fileRef = B4AD219E13E93EC9001386E3 /* hpdf_array.c */; };
 		B4AD222913E93EC9001386E3 /* hpdf_annotation.c in Sources */ = {isa = PBXBuildFile; fileRef = B4AD21A013E93EC9001386E3 /* hpdf_annotation.c */; };
+		B4FDD62C13E9503500887F25 /* PDFView_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = B4FDD62B13E9503500887F25 /* PDFView_iPad.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -366,6 +367,7 @@
 		B4AD219E13E93EC9001386E3 /* hpdf_array.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hpdf_array.c; path = Support/libharu/hpdf_array.c; sourceTree = SOURCE_ROOT; };
 		B4AD219F13E93EC9001386E3 /* hpdf_annotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = hpdf_annotation.h; path = Support/libharu/hpdf_annotation.h; sourceTree = SOURCE_ROOT; };
 		B4AD21A013E93EC9001386E3 /* hpdf_annotation.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = hpdf_annotation.c; path = Support/libharu/hpdf_annotation.c; sourceTree = SOURCE_ROOT; };
+		B4FDD62B13E9503500887F25 /* PDFView_iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PDFView_iPad.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -563,6 +565,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				B4FDD62B13E9503500887F25 /* PDFView_iPad.xib */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -752,6 +755,7 @@
 				28AD733F0D9D9553002E5188 /* MainWindow.xib in Resources */,
 				0E23984B109D885400601771 /* test.png in Resources */,
 				0E239892109D8CEB00601771 /* PDFView.xib in Resources */,
+				B4FDD62C13E9503500887F25 /* PDFView_iPad.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1054,6 +1058,7 @@
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Support/libpng \"$(SRCROOT)/Support/libharu/**";
 			};
 			name = Debug;
@@ -1070,6 +1075,7 @@
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/Support/libpng \"$(SRCROOT)/Support/libharu/**";
 			};
 			name = Release;
