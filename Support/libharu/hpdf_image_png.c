@@ -20,7 +20,9 @@
 #include "hpdf_image.h"
 
 #ifndef LIBHPDF_HAVE_NOPNGLIB
-#include <png.h>
+#include "png.h"
+#include "pnginfo.h"
+
 
 static void
 PngErrorFunc  (png_structp       png_ptr,
