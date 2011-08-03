@@ -7,4 +7,6 @@ build/*
 *.pbxuser
 *.mode1v3
 *.perspectivev3
-
+*.DS_Store.orig
+*.c.orig
+*.h.orig
